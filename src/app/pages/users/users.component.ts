@@ -166,7 +166,6 @@ Saveformate()
 addUserdata()
 {
   this.submitted = true;
-  console.log(this.addUsers.value)
   if(!this.addUsers.invalid)
   {
     debugger

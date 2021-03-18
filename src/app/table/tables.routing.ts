@@ -22,7 +22,7 @@ export const TablesRoutes: Routes = [
                 }
             },
             {
-                path: 'basictables',
+                path: 'privacy',
                 component: BasictableComponent,
                 data: {
                     title: 'Basic Tables',
@@ -44,7 +44,7 @@ export const TablesRoutes: Routes = [
                 }
             },
             {
-                path: 'colortables',
+                path: 'support',
                 component: ColortableComponent,
                 data: {
                     title: 'Color Tables',

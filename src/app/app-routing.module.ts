@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { FullComponent } from './layouts/full/full.component';
 import { BlankComponent } from './layouts/blank/blank.component';
+import { PrivacylinkComponent } from './privacylink/privacylink.component';
+import { SupportlinkComponent } from './supportlink/supportlink.component';
 
 
 export const Approutes: Routes = [
@@ -67,8 +69,16 @@ export const Approutes: Routes = [
     ]
   },
   {
-    path: '**',
-    redirectTo: '/authentication/404'
+    path: 'supportlink',
+    redirectTo: 'supportlink'
+  },
+  {
+    path: 'privacylink',
+    component:PrivacylinkComponent
+  },
+  {
+    path:'supportlink',
+    component:SupportlinkComponent
   }
 ];
 

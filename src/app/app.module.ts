@@ -28,6 +28,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { PrivacylinkComponent } from './privacylink/privacylink.component';
+import { SupportlinkComponent } from './supportlink/supportlink.component';
 
 
 
@@ -47,7 +49,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         BlankComponent,
         NavigationComponent,
         BreadcrumbComponent,
-        SidebarComponent   
+        SidebarComponent,
+        PrivacylinkComponent,
+        SupportlinkComponent   
     ],
     imports: [
         CommonModule,
