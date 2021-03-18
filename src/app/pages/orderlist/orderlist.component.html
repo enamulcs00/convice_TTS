@@ -1,0 +1,189 @@
+<div class="row">
+    <!-- Column -->
+  
+  
+    <div class="col-lg-12">
+      <div class="card">
+  
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <form >
+                <div class="mb-2">
+                    <input type="text" class="form-control" id="prenametext" placeholder="Search">
+                </div>
+            </form>
+            </div>
+            <div class="col-md-8 d-flex  justify-content-end">
+              <div ngbDropdown class="d-inline-block mb-2 mr-2">
+                <button class="btn btn-primary text-white" id="dropdownBasic1" ngbDropdownToggle>
+                  All
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button class="dropdown-item">Active</button>
+                  <button class="dropdown-item">Inactive</button>                 
+                </div>
+              </div>
+              <div ngbDropdown class="d-inline-block mb-2 mr-2">
+                <button class="btn btn-info text-white" id="dropdownBasic1" ngbDropdownToggle>
+                  All
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button class="dropdown-item">Confirmed</button>
+                  <button class="dropdown-item">Return</button>
+                  <button class="dropdown-item">Canceled</button>
+                </div>
+              </div>
+              <div ngbDropdown class="d-inline-block mb-2 mr-2">
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+                  Daily
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button class="dropdown-item">Daily</button>
+                  <button class="dropdown-item">Weekly</button>
+                  <button class="dropdown-item">Monthly</button>
+                  <button class="dropdown-item">Yearly</button>
+                </div>
+              </div>             
+            </div>
+            <div class="table-responsive">
+              <table class="table v-middle product-overview" id="zero_config">
+                <thead>
+                  <tr>
+                    <th>Order Item</th>
+                    <th>Customer Name</th>                                   
+                    <th>Contact</th>                             
+                    <th>Address</th>                             
+                    <th>Note</th>                             
+                    <th>Food Status</th>
+                    <th>Order Status</th>
+                    <th>Order Request</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      Soya Chaap
+                    </td>
+                    <!-- <td><span class="nowrap"> Ronny <a routerLink="/pages/vendorsdetail"><span class="sl-icon-info"></span></a></span></td> -->
+                    <td><span class="nowrap"> Ronny </span></td>
+                    
+                    <td><span class="text-nowrap">+91-7858485474</span></td>
+                    <td><span class="text-nowrap">3750 Grove Avenue,</span> Clinton</td>                   
+                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit....<a href="javascript:void(0)"
+                        (click)="reviewModal(review)">Read More</a></td>
+                    <td><div ngbDropdown placement="bottom" class="d-inline-block">
+                        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+                            Action
+                        </button>
+  
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class=" pb-5">
+                          <button  class="dropdown-item" ><i class="ti-eye"></i>
+                            On way to delivery
+                          </button>
+                          <button class="dropdown-item" ><i 
+                              class="ti-marker-alt"></i> Food Being Prepared</button>
+                          <button class="dropdown-item" (click)="userDeleteModal(userDelete)"><i class="ti-trash"></i>
+                            Pending </button>                           
+                            <button class="dropdown-item"><i class="ti-trash"></i>
+                                Completed and payment Confirmed</button>
+                        </div>
+                      </div></td>
+                      <td><div ngbDropdown placement="bottom" class="d-inline-block">
+                        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+                            Action
+                        </button>
+  
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class=" pb-5">
+                          <button  class="dropdown-item" ><i class="ti-eye"></i>
+                            Confirm
+                          </button>
+                          <button class="dropdown-item" ><i 
+                              class="ti-marker-alt"></i> Cancel</button>
+                          <button class="dropdown-item" (click)="userDeleteModal(userDelete)"><i class="ti-trash"></i>
+                            Ready for Pickup</button>                           
+                            <button class="dropdown-item"><i class="ti-trash"></i>
+                                Completed Order Request</button>
+                        </div>
+                      </div></td>
+                      <td>
+                        <div class="form-group">
+                            <div class="custom-control custom-radio">
+                              <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                              <label class="custom-control-label" for="customRadio1" (click)="orderConfirmModal(orderConfirm)">Accept</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                              <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                              <label class="custom-control-label" for="customRadio2" (click)="orderConfirmModal(orderConfirm)">Declined</label>
+                            </div>
+                          </div>
+                      </td>
+                    <td>
+                        <button class="btn btn-primary" (click)="userDeleteModal(userDelete)"><i class="ti-trash"></i>
+                            Delete</button>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Column -->
+    </div>
+    <!-- delete modal -->
+    <ng-template #userDelete let-modal>
+        <div class="modal-body">
+          <p>Are You Sure want to delete this user?</p>
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary mr-2" aria-label="Close"
+              (click)="modal.dismiss('Cross click')">Yes</button>
+            <button type="button" class="btn btn-seconadary" aria-label="Close"
+              (click)="modal.dismiss('Cross click')">No</button>
+          </div>
+        </div>
+      </ng-template>
+  
+    <!-- view modal -->
+<ng-template #review let-modal>
+    <div class="modal-body">
+      <button type="button" class=" close-icon" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <i class="mdi mdi-close"></i>
+      </button>
+      <div class="row">
+  
+        <!-- Column -->
+        <div class="col-lg-12 col-xlg-12 col-md-12">
+          <div class="card custom-tabs mb-0">
+            <div class="card-body">
+              <div class="row pt-2">
+                <div class="col-md-12">
+                  <p>
+                    It is a long established fact that a reader will be distracted by the readable content of a page when
+                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+                    distribution of letters, as opposed to using 'Content here, content here', making it look like
+                    readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their
+                    default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Column -->
+      </div>
+    </div>
+  </ng-template>
+
+  
+  <ng-template #orderConfirm let-modal>
+    <div class="modal-body">      
+        <label>Add Note</label>
+         <div class="form-group">
+          <textarea class="form-control" rows="3"></textarea>
+          <button class="btn btn-primary mt-2" (click)="modal.dismiss('Cross click')" >Submit</button>
+         </div>      
+    </div>
+  </ng-template>

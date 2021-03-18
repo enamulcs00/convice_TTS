@@ -1,0 +1,82 @@
+<!-- .row -->
+<!-- <div class="row">
+    <div class="col-sm-12">
+        <div class="card card-body">           
+            <form class="form-horizontal" [formGroup]="Faqcheck">
+                <div class="bg-light p-3 mb-3">
+                    <div class="form-group">
+                        <mat-form-field [floatLabel]="'never'">
+                        <input matInput type="text" id="que" name="que" formControlName="question" class="form-control" placeholder="Quetions">
+                    </mat-form-field>
+                    <mat-error class="error" *ngIf="submitted && errorHandling('question', 'required')">
+                        Question is required
+                    </mat-error>
+                    </div>                 
+                    <div class="">
+                        <mat-form-field [floatLabel]="'never'">
+                        <textarea matInput class="form-control" rows="3" formControlName="answer" placeholder="Add Answer here"></textarea>
+                    </mat-form-field>
+                    <mat-error class="error" *ngIf="submitted && errorHandling('answer', 'required')">
+                        Answer is required
+                    </mat-error>
+                    </div>
+                </div>  
+                <div class="showInputField"></div> 
+                <div class="form-group">
+                <button (click)="add()" class="btn btn-success"><i class="mdi mdi-plus"></i></button>
+                </div>
+                <button class="btn btn-primary" (click)="saveFaq()">Save</button>
+            </form>
+        </div>
+    </div>
+</div> -->
+<!-- /.row -->
+    <form  [formGroup]='Faqcheck'>
+<div class="row mt-3">
+    <div class="col-12">
+        <!-- <label> Add </label> -->
+        <table class="table table-bordered" formArrayName="specification">
+            <tr>
+                <th width="20%">
+                    <div class="input_button input_button2">
+                        <button type="button" mat-button (click)="addNewSpecification()"
+                            class="btn btn-primary">Add More</button>
+                    </div>
+                </th>
+            </tr>
+            <tr *ngFor="let quantity of specification().controls; let i=index"
+                [formGroupName]="i">
+                <td style="width: 40%;">
+                    <mat-form-field class="example-full-width">
+                        <mat-label> Question:</mat-label> <br>
+                        <input style="width: 100%; padding: 10px; border: solid 1px #e5e1e1; border-radius: 5px;" matInput type="text" min="0" formControlName="question">
+                    </mat-form-field>
+                </td>
+                <td style="width: 40%;">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Answer:</mat-label> <br>
+                        <input style="width: 100%; padding: 10px;  border: solid 1px #e5e1e1; border-radius: 5px;" matInput type="text" min="0" formControlName="answer">
+                    </mat-form-field>
+                
+                </td>
+             
+                <td style="width: 20%; vertical-align: middle;">
+                    <button class="btn btn-primary" (click)="removeSpecification(i)">Remove</button>
+                </td>
+            </tr>
+        </table>
+        <div>
+            <mat-error class="error" style="padding-left: 216px;"
+            *ngIf
+            
+            
+            ="submitted &&  !Faqcheck.get('specification').valid">
+            Please fill all the <strong>required field</strong>
+        </mat-error>
+        </div>
+      
+        <button class="btn btn-primary" (click)="saveFaq()">Save</button>
+      
+    </div>
+</div>
+</form>

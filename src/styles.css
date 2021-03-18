@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0px;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+    background-color: #FFAD2B;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+    background-color: #d1860e;
+}
+
+.breadcrumb-item a {
+    color: #e68e00 !important;
+}
+.error
+{
+    color: red;
+}
+
+.custom_filter {
+    padding: 10px;
+    border: solid #999 1px;
+}
+.custom_filter select {
+    padding: 10px 5px;
+    border: none;
+    background: none;
+}
+
+.btn-theme {
+    background: #FFAD2B;
+    color: #000;
+}
+
+.sidebar-nav ul .sidebar-item .first-level .sidebar-item.active .sidebar-link {
+    color: #FFAD2B;
+    font-weight: 700;
+}
+
+

@@ -1,0 +1,301 @@
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12 text-right">
+        <div class="add-categories ">
+          <button  class="btn btn-seconadary mb-2" (click)="addCategoryModel(addCategory)"><i  class="sl-icon-plus"></i> Add Categories</button>
+        
+        </div>
+      </div>
+    </div>
+    
+    <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+      <ngb-panel >
+        <ng-template ngbPanelTitle class="p-2">
+          <h3 class="mb-0">Fast Food </h3>
+          <div class="delete-categories">
+         
+          <span class="btn btn-primary mr-2"  (click)="editBoxModal(editModel)"><i class="ti-marker-alt"></i>  </span>
+          <span class="btn btn-danger"  (click)="deleteBoxModal(deleteBox)"><i class="ti-trash"></i>  </span>
+        </div>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="pl-5">
+          <table class="table v-middle product-overview ">
+            <tr>
+              <td>
+                <span class="img-small"><img src="assets/images/food/1.jpg" alt="iMac" width="60"
+                  class="rounded"></span>
+              </td>
+              <td>
+                Soya Chap
+              </td>
+              <td>              
+                <a href="javascript:void()" (click)="editBoxModal(editModel)" class="mr-2"><i  class="ti-marker-alt"></i> </a>
+                <a href="javascript:void()"  (click)="deleteBoxModal(deleteBox)"><i class="ti-trash"></i>  </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="img-small"><img src="assets/images/food/1.jpg" alt="iMac" width="60"
+                  class="rounded"></span>
+              </td>
+              <td>
+                Manchuriyan
+              </td>
+              <td>              
+                <a href="javascript:void()" (click)="editBoxModal(editModel)" class="mr-2"><i  class="ti-marker-alt"></i> </a>
+                <a href="javascript:void()"  (click)="deleteBoxModal(deleteBox)"><i class="ti-trash"></i>  </a>
+              </td>
+            </tr>
+          </table>
+
+          <div class=""> <button class="btn btn-primary mr-2"  (click)="addsubCategoryModel(addsubCategory)"><i class="sl-icon-plus"></i> Add New Sub Categories  </button></div>
+        </div>
+        </ng-template>
+      </ngb-panel>
+      <ngb-panel >
+        <ng-template ngbPanelTitle class="p-2">
+         
+          <h3 class="mb-0">Thali </h3>
+          <div class="delete-categories">
+         
+          <span class="btn btn-primary mr-2"  (click)="editBoxModal(editModel)"><i class="ti-marker-alt"></i>  </span>
+          <span class="btn btn-danger"  (click)="deleteBoxModal(deleteBox)"><i class="ti-trash"></i>  </span>
+        </div>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="pl-5">
+          <table class="table v-middle product-overview">
+            <tr>
+              <td>
+                <span class="img-small"><img src="assets/images/food/1.jpg" alt="iMac" width="60"
+                  class="rounded"></span>
+              </td>
+              <td>
+                Brekfat Thali
+              </td>
+              <td>              
+                <a href="javascript:void()" (click)="editBoxModal(editModel)" class="mr-2"><i  class="ti-marker-alt"></i> </a>
+                <a href="javascript:void()"  (click)="deleteBoxModal(deleteBox)"><i class="ti-trash"></i>  </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="img-small"><img src="assets/images/food/1.jpg" alt="iMac" width="60"
+                  class="rounded"></span>
+              </td>
+              <td>
+                Special Thali
+              </td>
+              <td>              
+                <a href="javascript:void()" (click)="editBoxModal(editModel)" class="mr-2"><i  class="ti-marker-alt"></i> </a>
+                <a href="javascript:void()"  (click)="deleteBoxModal(deleteBox)"><i class="ti-trash"></i>  </a>
+              </td>
+            </tr>
+          </table>
+          <div class=""> <button class="btn btn-primary mr-2"  (click)="addsubCategoryModel(addsubCategory)"><i class="sl-icon-plus"></i> Add New Sub Categories  </button></div>
+        </div>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+  </div>
+</div>
+
+<!-- edit user detail -->
+<ng-template #addsubCategory let-modal>
+  <div class="modal-body">
+    <div class="card">
+      <form action="#">
+        <div class="form-body">
+          <div class="card-body">
+            <div class="row p-t-20">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label">Name</label>
+                  <input type="text" id="firstName" class="form-control" placeholder="John doe">
+
+                </div>
+              </div>
+              <!--/span-->
+              <div class="col-md-6">
+                <div class="form-group has-success">
+                  <div class="form-group">
+                    <label class="control-label">Upload Food Image</label>
+                    <div class="custom-file"><input class="custom-file-input" id="inputGroupFile01" type="file"><label
+                        class="custom-file-label" for="inputGroupFile01">Choose file</label></div>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+            </div>
+            <!--/row-->
+          </div>
+          <div class="form-actions">
+            <div class="card-body">
+              <button type="submit" class="btn btn-success mr-3" (click)="modal.dismiss('Cross click')">
+                <i class="fa fa-check"></i> Update</button>
+              <button type="button" class="btn btn-dark" (click)="modal.dismiss('Cross click')">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</ng-template>
+
+<!-- delete modal -->
+<ng-template #deleteBox let-modal>
+  <div class="modal-body">
+    <p>Are You Sure want to delete this user?</p>
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary mr-2" aria-label="Close"
+        (click)="modal.dismiss('Cross click')">Yes</button>
+      <button type="button" class="btn btn-seconadary" aria-label="Close"
+        (click)="modal.dismiss('Cross click')">No</button>
+    </div>
+  </div>
+</ng-template>
+
+<!-- edit user detail -->
+<ng-template #editModel let-modal>
+  <div class="modal-body">
+    <div class="card">
+      <form action="#">
+        <div class="form-body">
+          <div class="card-body">
+            <div class="row p-t-20">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label">Name</label>
+                  <input type="text" id="firstName" class="form-control" placeholder="John doe">
+
+                </div>
+              </div>
+              <!--/span-->
+              <div class="col-md-6">
+                <div class="form-group has-success">
+                  <div class="form-group">
+                    <label class="control-label">Upload Food Image</label>
+                    <div class="custom-file"><input class="custom-file-input" id="inputGroupFile01" type="file"><label
+                        class="custom-file-label" for="inputGroupFile01">Choose file</label></div>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+            </div>
+            <!--/row-->
+          </div>
+          <div class="form-actions">
+            <div class="card-body">
+              <button type="submit" class="btn btn-success mr-3" (click)="modal.dismiss('Cross click')">
+                <i class="fa fa-check"></i> Update</button>
+              <button type="button" class="btn btn-dark" (click)="modal.dismiss('Cross click')">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</ng-template>
+
+
+<!-- edit user detail -->
+<ng-template #addsubCategory let-modal>
+  <div class="modal-body">
+    <div class="card">
+      <form action="#">
+        <div class="form-body">
+          <div class="card-body">
+            <div class="row p-t-20">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label">Name</label>
+                  <input type="text" id="firstName" class="form-control" placeholder="John doe">
+
+                </div>
+              </div>
+              <!--/span-->
+              <div class="col-md-6">
+                <div class="form-group has-success">
+                  <div class="form-group">
+                    <label class="control-label">Upload Food Image</label>
+                    <div class="custom-file"><input class="custom-file-input" id="inputGroupFile01" type="file"><label
+                        class="custom-file-label" for="inputGroupFile01">Choose file</label></div>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+            </div>
+            <!--/row-->
+          </div>
+          <div class="form-actions">
+            <div class="card-body">
+              <button type="submit" class="btn btn-success mr-3" (click)="modal.dismiss('Cross click')">
+                <i class="fa fa-check"></i> Update</button>
+              <button type="button" class="btn btn-dark" (click)="modal.dismiss('Cross click')">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</ng-template>
+
+<!-- edit user detail -->
+<ng-template #addCategory let-modal>
+  <div class="modal-body">
+    <div class="card">
+      <form action="#">
+        <div class="form-body">
+          <div class="card-body">
+            <div class="row p-t-20">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="control-label">Category Name</label>
+                  <input type="text" id="firstName" class="form-control" placeholder="John doe">
+
+                </div>
+              </div>
+              <!--/span-->
+             
+            </div>
+            <!--/row-->
+            <div class="row p-t-20">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label">Sub Categories</label>
+                  <input type="text" id="firstName" class="form-control" placeholder="John doe">
+
+                </div>
+              </div>
+              <!--/span-->
+              <div class="col-md-6">
+                <div class="form-group has-success">
+                  <div class="form-group">
+                    <label class="control-label">Upload Food Image</label>
+                    <div class="custom-file"><input class="custom-file-input" id="inputGroupFile01" type="file"><label
+                        class="custom-file-label" for="inputGroupFile01">Choose file</label></div>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+            </div>
+            <!--/row-->
+          </div>
+          <div class="form-actions">
+            <div class="card-body">
+              <button type="submit" class="btn btn-success mr-3" (click)="modal.dismiss('Cross click')">
+                <i class="fa fa-check"></i> Add</button>
+              <button type="button" class="btn btn-dark" (click)="modal.dismiss('Cross click')">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</ng-template>

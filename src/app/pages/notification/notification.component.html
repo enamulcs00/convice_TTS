@@ -1,0 +1,54 @@
+<div class="card">
+<div class="card-body">
+    <div ngbDropdown placement="bottom" class="d-inline-block mb-3" >
+        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+          Notifications
+        </button>
+       
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" >
+          <button class="dropdown-item" > Content based changes and updates
+          </button>
+          <button class="dropdown-item" > Activity-Based Updates</button>
+          
+          <button class="dropdown-item">  Broadcast Notification</button>  
+        </div>
+      </div>
+      <div ngbDropdown placement="bottom" class="d-inline-block ml-2 mb-3" >
+        <button class="btn btn-outline-warning" id="dropdownBasic1" ngbDropdownToggle>
+          Enable
+        </button>
+       
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" >
+          <button class="dropdown-item" > Enable
+          </button>
+          <button class="dropdown-item" > Disable</button> 
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6">
+        <form class="form-horizontal form-material">
+            <div class="form-group">            
+                <div class="">
+                    <label>Add Heading</label>
+                    <input type="text" placeholder="" class="form-control form-control-line" placeholder="Add Heading">
+                </div>
+            </div>             
+            <div class="">           
+                    <div class="form-group">
+                        <label>Add Content</label>
+                        <textarea class="form-control" rows="5" placeholder="Add Content"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fa fa-check"></i> Send</button>
+                
+            </div>
+        </form>
+    </div>
+      </div>
+
+    
+   
+    
+</div>
+</div>

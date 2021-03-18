@@ -1,0 +1,95 @@
+<div class="row">
+    <div class="col-md-3">
+        <!-- Card -->
+        <div class="card">
+            <div class="card-body card-box p-2">
+                <div class="d-flex align-items-center" (click)="gotousers()"> 
+                    <div class="m-r-10">
+                        <span class="btn btn-circle btn-xl bg-danger">
+                        <i class="sl-icon-people text-white"></i>
+                    </span>
+                    </div>
+                    <div>
+                        Total Users
+                    </div>
+                    <div class="ml-auto">
+                        <h2 class="m-b-0 font-light">{{totaluser}}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card -->
+    </div>
+    <!-- col-md-4 -->
+    <div class="col-md-3">
+        <!-- Card -->
+        <div class="card">
+            <div class="card-body card-box p-2">
+                <div class="d-flex align-items-center">
+                    <div class="m-r-10">
+                        <span class="btn btn-circle btn-xl btn-info">
+                        <i class="fa fa-shopping-cart text-white"></i>
+                    </span>
+                    </div>
+                    <div>
+                        Total Files Converted
+                    </div>
+                    <div class="ml-auto">
+                        <h2 class="m-b-0 font-light">{{totalfilecon}}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Card -->
+    </div>
+    <!-- col-md-4 -->
+    <div class="col-md-3">
+        <!-- Card -->
+        <div class="card">
+            <div class="card-body card-box p-2" >
+                <div class="d-flex align-items-center">
+                    <div class="m-r-10">
+                        <span class="btn btn-circle btn-xl bg-danger">
+                        <i class="sl-icon-social-soundcloud text-white" style="font-size:40px;"></i>
+                    </span>
+                    </div>
+                    <div style="width: 220px;">
+                        Total words converted into speech signals
+                    </div>
+                    <div class="ml-auto">
+                        <h2 class="m-b-0 font-light">{{totalword}}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card -->
+    </div>
+
+    <!-- col-md-4 -->
+    <div class="col-md-3">
+        <!-- Card -->
+        <div class="card">
+            <div class="card-body card-box p-2" (click)="gotousers()">
+                <div class="d-flex align-items-center">
+                    <div class="m-r-10">
+                        <span class="btn btn-circle btn-xl btn-info">
+                      <i class="sl-icon-user text-white"></i>
+                    </span>
+                    </div>
+                    <div>
+                        New users
+                    </div>
+                    <div class="ml-auto">
+                        <h2 class="m-b-0 font-light">{{newuser}}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Card -->
+    </div>
+    <!-- col-md-4 -->
+
+    <!-- Column -->
+</div>
