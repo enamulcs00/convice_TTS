@@ -47,7 +47,7 @@ import { BannerComponent } from './banner/banner.component';
 import { PrivacyComponent } from './privacy-policy/privacy.component';
 import { AdminComponent } from './admin/admin.component';
 import { SupportComponent } from './support/support.component';
-
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   imports: [
 CommonModule,
@@ -62,7 +62,8 @@ CommonModule,
     ChartistModule,
     NgxChartsModule,
     NgxDatatableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatIconModule
   
   ],
   declarations: [

@@ -31,6 +31,17 @@ export class ConvserviceService {
     return this.http.get(`${this.baseUrl}admin/getProfile`,httpOptions)
   }
 
+  getPackage()
+  {
+    const authorization =localStorage.getItem('token');
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Authorization':authorization })
+   }
+    //Authtoken//
+    return this.http.get(`${this.baseUrl}admin/packages`,httpOptions)
+  }
+
+
   updateProfile(data)
   {
     //Auth token//
@@ -156,6 +167,9 @@ getPackagelist(data)
     headers: new HttpHeaders({ 'Authorization':authorization })
  }
   return this.http.post<any>(`${this.baseUrl}admin/dashboard/package/${data.type}`,'',httpOptions)
+}
+getApi(endPointURL){
+  return this.http.get(this.baseUrl + endPointURL)
 }
 
 }

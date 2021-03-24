@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConvserviceService } from '../convservice.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-privacylink',
@@ -9,15 +10,15 @@ import { ConvserviceService } from '../convservice.service';
 export class PrivacylinkComponent implements OnInit {
   termscond: any;
 
-  constructor(private Srvc:ConvserviceService) { }
+  constructor(private http:HttpClient) { }
 
   ngOnInit() {
-    // this.Srvc.getTerms().subscribe((res:any)=>
-    // {
-    //   console.log(res)
-    //   this.termscond = res.data.find(i => i.key == 'Privacy').value
+    this.http.get<any>(`https://api.convoiceapp.com/api/v1/admin/getSettings`).subscribe((res:any)=>
+    {
+      console.log(res)
+      this.termscond = res.data.find(i => i.key == 'Privacy').value
      
-    // })
+    })
   }
 
 }

@@ -30,6 +30,7 @@ import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { PrivacylinkComponent } from './privacylink/privacylink.component';
 import { SupportlinkComponent } from './supportlink/supportlink.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -68,7 +69,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         NgMultiSelectDropDownModule.forRoot(),
         AgmCoreModule.forRoot({ apiKey: 'AIzaSyBUb3jDWJQ28vDJhuQZxkC0NXr_zycm8D0' }),
         DragDropModule,
-        
+        MatIconModule
         
     ],
    
