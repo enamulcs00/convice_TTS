@@ -85,7 +85,7 @@
                           View
                         </a> -->
                                                 <button class="dropdown-item"
-                                                    (click)="userDetailModal(userDetail,item._id)"><i
+                                                    (click)="userDetailModal(userDetail,item)"><i
                                                         _ngcontent-axh-c146="" class="ti-marker-alt"></i> Edit</button>
 
                                                 <button class="dropdown-item"
@@ -228,7 +228,7 @@
     <!-- delete modal -->
     <ng-template #userDelete let-modal>
         <div class="modal-body">
-            <p>Are You Sure want to delete this user?</p>
+            <p>Are you sure want to delete this package?</p>
             <div class="btn-group">
                 <button type="button" class="btn btn-primary m-2" aria-label="Close"
                     (click)="modalyes('Cross click')">Yes</button>
@@ -248,61 +248,133 @@
                             <div class="row p-t-20">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label">FirstName</label>
+                                        <label class="control-label">Package name</label>
                                         <mat-form-field [floatLabel]="'never'">
-                                        <input  matInput type="text" id="firstName" formControlName="package"
-                                            class="form-control" placeholder="package name">
+                                            <input matInput (keydown.space)="$event.preventDefault()"
+                                                formControlName="package" type="text" id="firstName"
+                                                class="form-control" placeholder="Package name">
                                         </mat-form-field>
                                         <mat-error class="error"
-                                        *ngIf="submitted && errorHandlingProfile('package', 'required')">
-                                        firstName is required!
-                                    </mat-error>
-                                    <mat-error class="error"
-                                        *ngIf="submitted && errorHandlingProfile('package', 'maxlength') || errorHandlingProfile('firstName', 'minlength')">
-                                        Invalid firstName!
-                                    </mat-error>
+                                            *ngIf="submitted && errorHandlingProfile('package', 'required')">
+                                            Package name is required!
+                                        </mat-error>
+                                        
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label">LastName</label>
+                                        <label class="control-label">Price</label>
                                         <mat-form-field [floatLabel]="'never'">
-                                        <input matInput type="text" id="lastName" formControlName="lastName"
-                                            class="form-control" placeholder="John doe">
+                                            <input matInput (keydown.space)="$event.preventDefault()"
+                                                formControlName="price" type="text" id="firstName"
+                                                class="form-control" placeholder="Price">
                                         </mat-form-field>
                                         <mat-error class="error"
-                                        *ngIf="submitted && errorHandlingProfile('lastName', 'required')">
-                                        lastName is required!
-                                    </mat-error>
-                                    <mat-error class="error"
-                                        *ngIf="submitted && errorHandlingProfile('lastName', 'maxlength') || errorHandlingProfile('lastName', 'minlength')">
-                                        Invalid lastName!
-                                    </mat-error>
+                                            *ngIf="submitted && errorHandlingProfile('price', 'required')">
+                                         Price is required!
+                                        </mat-error>
+                                      
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                            <div class="row ">
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group has-danger">
+                                        <label class="control-label">Expiry days</label>
+                                        <mat-form-field [floatLabel]="'never'">
+                                            <input matInput type="email" (keydown.space)="$event.preventDefault()"
+                                                id="email" formControlName="expiryDays"
+                                                class="form-control form-control-danger"
+                                                placeholder="Expiry days">
+                                        </mat-form-field>
+                                        <mat-error class="error"
+                                            *ngIf="submitted && errorHandlingProfile('expiryDays', 'required')">
+                                            Expiry day is required!
+                                        </mat-error>
+                                     
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group has-danger">
+                                        <label class="control-label">Features</label>
+                                        <mat-form-field [floatLabel]="'never'">
+                                            <input matInput type="email" (keydown.space)="$event.preventDefault()"
+                                                id="email" formControlName="features"
+                                                class="form-control form-control-danger"
+                                                placeholder="Features">
+                                        </mat-form-field>
+                                        <mat-error class="error"
+                                            *ngIf="submitted && errorHandlingProfile('features', 'required')">
+                                            Features is required!
+                                        </mat-error>
+                                     
                                     </div>
                                 </div>
                                 <!--/span-->
                             </div>
                             <!--/row-->
-                            <div class="row ">
+                            <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label">Email</label>
+                                    <div class="form-group has-danger">
+                                        <label class="control-label">Purchase id</label>
                                         <mat-form-field [floatLabel]="'never'">
-                                        <input matInput type="text" id="email" formControlName="email" class="form-control"
-                                            placeholder="example@gmail.com">
+                                            <input matInput type="text" (keydown.space)="$event.preventDefault()"
+                                                id="Address" formControlName="purchaseId"
+                                                class="form-control form-control-danger" placeholder="Purchase id">
                                         </mat-form-field>
                                         <mat-error class="error"
-                                        *ngIf="submitted && errorHandlingProfile('email', 'required')">
-                                        Email is required!
-                                    </mat-error>
-                                    <mat-error class="error"
-                                        *ngIf="submitted && errorHandlingProfile('email', 'email')">
-                                        Invalid email
-                                    </mat-error>
+                                            *ngIf="submitted && errorHandlingProfile('purchaseId', 'required')">
+                                            Purchase id is required!
+                                        </mat-error>
+                                      
                                     </div>
                                 </div>
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group has-danger">
+                                        <label class="control-label">Character limit</label>
+                                        <mat-form-field [floatLabel]="'never'">
+                                            <input matInput type="email" (keydown.space)="$event.preventDefault()"
+                                                id="email" formControlName="charLimit"
+                                                class="form-control form-control-danger"
+                                                placeholder="Character limit">
+                                        </mat-form-field>
+                                        <mat-error class="error"
+                                            *ngIf="submitted && errorHandlingProfile('charLimit', 'required')">
+                                            Character Limit is required!
+                                        </mat-error>
+                                     
+                                    </div>
+                                </div>
+                                <!--/span-->
                             </div>
+                            <!--/row-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group has-danger">
+                                        <label class="control-label">Billing type</label>
+                                        <mat-form-field [floatLabel]="'never'">
+                                            <input matInput type="email" (keydown.space)="$event.preventDefault()"
+                                                id="email" formControlName="billingType"
+                                                class="form-control form-control-danger"
+                                                placeholder="Billing type">
+                                        </mat-form-field>
+                                        <mat-error class="error"
+                                            *ngIf="submitted && errorHandlingProfile('billingType', 'required')">
+                                            Billing type is required!
+                                        </mat-error>
+                                     
+                                    </div>
+                                </div>
+
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
                         </div>
 
                         <div class="form-actions">
@@ -382,6 +454,22 @@
                                      
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="form-group has-danger">
+                                        <label class="control-label">Features</label>
+                                        <mat-form-field [floatLabel]="'never'">
+                                            <input matInput type="email" (keydown.space)="$event.preventDefault()"
+                                                id="email" formControlName="features"
+                                                class="form-control form-control-danger"
+                                                placeholder="Features">
+                                        </mat-form-field>
+                                        <mat-error class="error"
+                                            *ngIf="submitted && errorHandlingRevocer('features', 'required')">
+                                            Features is required!
+                                        </mat-error>
+                                     
+                                    </div>
+                                </div>
                                 <!--/span-->
                             </div>
                             <!--/row-->
@@ -391,7 +479,7 @@
                                         <label class="control-label">Purchase id</label>
                                         <mat-form-field [floatLabel]="'never'">
                                             <input matInput type="text" (keydown.space)="$event.preventDefault()"
-                                                id="Address" formControlName="address"
+                                                id="Address" formControlName="purchaseId"
                                                 class="form-control form-control-danger" placeholder="Purchase id">
                                         </mat-form-field>
                                         <mat-error class="error"
@@ -404,12 +492,12 @@
                                 <!--/span-->
                                 <div class="col-md-6">
                                     <div class="form-group has-danger">
-                                        <label class="control-label">Character Limit</label>
+                                        <label class="control-label">Character limit</label>
                                         <mat-form-field [floatLabel]="'never'">
                                             <input matInput type="email" (keydown.space)="$event.preventDefault()"
                                                 id="email" formControlName="charLimit"
                                                 class="form-control form-control-danger"
-                                                placeholder="Character Limit">
+                                                placeholder="Character limit">
                                         </mat-form-field>
                                         <mat-error class="error"
                                             *ngIf="submitted && errorHandlingRevocer('charLimit', 'required')">
@@ -422,7 +510,22 @@
                             </div>
                             <!--/row-->
                             <div class="row">
-
+                                <div class="col-md-6">
+                                    <div class="form-group has-danger">
+                                        <label class="control-label">Billing type</label>
+                                        <mat-form-field [floatLabel]="'never'">
+                                            <input matInput type="email" (keydown.space)="$event.preventDefault()"
+                                                id="email" formControlName="billingType"
+                                                class="form-control form-control-danger"
+                                                placeholder="Billing type">
+                                        </mat-form-field>
+                                        <mat-error class="error"
+                                            *ngIf="submitted && errorHandlingRevocer('billingType', 'required')">
+                                            Billing type is required!
+                                        </mat-error>
+                                     
+                                    </div>
+                                </div>
 
                                 <!--/span-->
                             </div>

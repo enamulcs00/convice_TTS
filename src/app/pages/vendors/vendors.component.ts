@@ -23,6 +23,7 @@ export class VendorsComponent implements OnInit {
   isActive: any;
   pagecount: any;
   editdata: any;
+  userId: any;
   constructor(private modalService: NgbModal,private router:Router ,private formBuilder: FormBuilder,private Srvc:ConvserviceService) 
   {
     if(!localStorage.getItem('token'))this.router.navigate(['/login'])
@@ -44,10 +45,14 @@ export class VendorsComponent implements OnInit {
 
      this.Editprofile = formBuilder.group
      ({
-      firstName:['',Validators.required],
-      lastName:['',Validators.required],
-      email:['',[Validators.required,Validators.email]]
-    //  profilePic:['',Validators.required]
+      package:['', Validators.required],
+      price:['',Validators.required],
+     // phoneNo:['',Validators.compose([Validators.required, Validators.maxLength(10), Validators.minLength(5)])],
+      expiryDays:['',[Validators.required]],
+      charLimit:['',[Validators.required]],
+      purchaseId:['',[Validators.required]],
+      features:['',Validators.required],
+      billingType:['',[Validators.required]],
      })
   }
 
@@ -73,13 +78,19 @@ userDeleteModal(userDelete,id) {
   this.userid = id
   this.modalService.open(userDelete, {backdropClass: 'light-blue-backdrop',centered: true,size: 'sm'});
 }
-userDetailModal(userDetail,id) {
-  this.userid = id
-  debugger
-  this.editdata = this.userdata.filter(ele => ele._id == id)
-  this.Editprofile.controls['firstName'].setValue(this.editdata[0].firstName)
-  this.Editprofile.controls['lastName'].setValue(this.editdata[0].lastName)
-  this.Editprofile.controls['email'].setValue(this.editdata[0].email)
+
+userDetailModal(userDetail,obj) {
+  this.userid = obj._id
+  this.Editprofile.patchValue({
+package:obj.name,
+price:obj.price,
+expiryDays:obj.expiryDays,
+charLimit:obj.charLimit,
+purchaseId:obj.purchaseId,
+features:obj.features,
+billingType:obj.billingType,
+  })
+  
   this.modalService.open(userDetail, {backdropClass: 'light-blue-backdrop',centered: true,size: 'lg'});
 }
 addUserModal(addUser) {
@@ -109,8 +120,8 @@ getAllUsers()
 
 modalyes()
 {
- debugger
-  this.Srvc.DeleteUsers(this.userid).subscribe((res:any)=>
+ 
+  this.Srvc.DeletePackage(this.userid).subscribe((res:any)=>
  {
    if(res.statusCode == 200)
    {
@@ -127,12 +138,17 @@ modalUpdated()
   this.submitted = true;
   const data =
   {
-    "firstName":this.Editprofile.controls['package'].value,
-    "lastName":this.Editprofile.controls['lastName'].value,
-    "email":this.Editprofile.controls['email'].value
+    
+    "name":this.Editprofile.controls['package'].value,
+      "price":this.Editprofile.controls['price'].value,
+      "features":this.Editprofile.controls['features'].value,
+      "expiryDays":this.Editprofile.controls['expiryDays'].value,
+      "charLimit":this.Editprofile.controls['charLimit'].value,
+      "billingType":this.Editprofile.controls['billingType'].value,
+      "purchaseId":this.Editprofile.controls['purchaseId'].value
   }
 
-  this.Srvc.EditUsers(this.userid,data).subscribe((res:any)=>
+  this.Srvc.EditPackage(this.userid,data).subscribe((res:any)=>
   {
     if(res.statusCode == 200)
     {
@@ -161,16 +177,18 @@ addUserdata()
 {
   this.submitted = true;
   if(!this.addUsers.invalid)
-  {
-    debugger
+  { 
     const data=
     {
-      "firstName":this.addUsers.controls['firstName'].value,
-      "lastName":this.addUsers.controls['lastName'].value,
-      "email":this.addUsers.controls['email'].value,
-      "gender":this.addUsers.controls['gender'].value
+      "name":this.addUsers.controls['package'].value,
+      "price":this.addUsers.controls['price'].value,
+      "features":this.addUsers.controls['features'].value,
+      "expiryDays":this.addUsers.controls['expiryDays'].value,
+      "charLimit":this.addUsers.controls['charLimit'].value,
+      "billingType":this.addUsers.controls['billingType'].value,
+      "purchaseId":this.addUsers.controls['purchaseId'].value
     }
-    this.Srvc.addUser(data).subscribe((res:any)=>
+    this.Srvc.addPackage(data).subscribe((res:any)=>
     {
       if(res.statusCode == 200)
       {

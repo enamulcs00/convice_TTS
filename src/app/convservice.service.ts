@@ -91,6 +91,15 @@ Allusers(data)
    return this.http.post<any>(`${this.baseUrl}admin/allUsers`,data,httpOptions)  
 }
 
+DeletePackage(id)
+{
+  const authorization =localStorage.getItem('token');
+  const httpOptions = {
+    headers: new HttpHeaders({ 'Authorization':authorization })
+ }
+  return this.http.delete<any>(`${this.baseUrl}admin/packages/${id}`,httpOptions)
+}
+
 DeleteUsers(id)
 {
   const authorization =localStorage.getItem('token');
@@ -109,6 +118,23 @@ EditUsers(id,data)
   return this.http.put<any>(`${this.baseUrl}admin/users/${id}`,data,httpOptions)
 }
 
+EditPackage(id,data)
+{
+  const authorization =localStorage.getItem('token');
+  const httpOptions = {
+    headers: new HttpHeaders({ 'Authorization':authorization })
+ }
+  return this.http.put<any>(`${this.baseUrl}admin/packages/${id}`,data,httpOptions)
+}
+
+addPackage(data)
+{
+  const authorization =localStorage.getItem('token');
+  const httpOptions = {
+    headers: new HttpHeaders({ 'Authorization':authorization })
+ }
+  return this.http.post<any>(`${this.baseUrl}admin/packages`,data,httpOptions)
+}
 
 addUser(data)
 {
