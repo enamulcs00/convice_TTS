@@ -258,7 +258,10 @@
                                             *ngIf="submitted && errorHandlingProfile('package', 'required')">
                                             Package name is required!
                                         </mat-error>
-                                        
+                                        <mat-error class="error"
+                                        *ngIf="errorHandlingProfile('package', 'pattern')">
+                                        Package name should albhabetic only!
+                                    </mat-error>
                                     </div>
                                 </div>
 
@@ -274,7 +277,10 @@
                                             *ngIf="submitted && errorHandlingProfile('price', 'required')">
                                          Price is required!
                                         </mat-error>
-                                      
+                                        <mat-error class="error"
+                                        *ngIf="errorHandlingProfile('price', 'pattern')">
+                                        Price should numeric only!
+                                    </mat-error>
                                     </div>
                                 </div>
                                 <!--/span-->
@@ -296,7 +302,10 @@
                                             *ngIf="submitted && errorHandlingProfile('expiryDays', 'required')">
                                             Expiry day is required!
                                         </mat-error>
-                                     
+                                        <mat-error class="error"
+                                        *ngIf="errorHandlingProfile('expiryDays', 'pattern')">
+                                        Expiry days should numeric only!
+                                    </mat-error>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -348,7 +357,10 @@
                                             *ngIf="submitted && errorHandlingProfile('charLimit', 'required')">
                                             Character Limit is required!
                                         </mat-error>
-                                     
+                                        <mat-error class="error"
+                                        *ngIf="errorHandlingProfile('charLimit', 'pattern')">
+                                        Character limit should numeric only!
+                                    </mat-error>
                                     </div>
                                 </div>
                                 <!--/span-->
@@ -368,7 +380,10 @@
                                             *ngIf="submitted && errorHandlingProfile('billingType', 'required')">
                                             Billing type is required!
                                         </mat-error>
-                                     
+                                        <mat-error class="error"
+                                        *ngIf="errorHandlingProfile('billingType', 'pattern')">
+                                        Billing type should albhabetic only!
+                                    </mat-error>
                                     </div>
                                 </div>
 
@@ -413,7 +428,10 @@
                                             *ngIf="submitted && errorHandlingRevocer('package', 'required')">
                                             Package name is required!
                                         </mat-error>
-                                        
+                                        <mat-error class="error"
+                                            *ngIf="errorHandlingRevocer('package', 'pattern')">
+                                            Package name should alphabetic!
+                                        </mat-error>
                                     </div>
                                 </div>
 
@@ -429,7 +447,10 @@
                                             *ngIf="submitted && errorHandlingRevocer('price', 'required')">
                                          Price is required!
                                         </mat-error>
-                                      
+                                        <mat-error class="error"
+                                        *ngIf="errorHandlingRevocer('price', 'pattern')">
+                                        Price should numeric only!
+                                    </mat-error>
                                     </div>
                                 </div>
                                 <!--/span-->
@@ -451,7 +472,10 @@
                                             *ngIf="submitted && errorHandlingRevocer('expiryDays', 'required')">
                                             Expiry day is required!
                                         </mat-error>
-                                     
+                                        <mat-error class="error"
+                                        *ngIf="errorHandlingRevocer('expiryDays', 'pattern')">
+                                        Expiry days should numeric only!
+                                    </mat-error>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -503,7 +527,10 @@
                                             *ngIf="submitted && errorHandlingRevocer('charLimit', 'required')">
                                             Character Limit is required!
                                         </mat-error>
-                                     
+                                        <mat-error class="error"
+                                        *ngIf="errorHandlingRevocer('charLimit', 'pattern')">
+                                        Character limit should numeric only!
+                                    </mat-error>
                                     </div>
                                 </div>
                                 <!--/span-->
@@ -523,7 +550,10 @@
                                             *ngIf="submitted && errorHandlingRevocer('billingType', 'required')">
                                             Billing type is required!
                                         </mat-error>
-                                     
+                                        <mat-error class="error"
+                                        *ngIf="errorHandlingRevocer('billingType', 'pattern')">
+                                        Billing type should albhabetic only!
+                                    </mat-error>
                                     </div>
                                 </div>
 

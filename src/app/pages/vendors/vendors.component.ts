@@ -30,14 +30,14 @@ export class VendorsComponent implements OnInit {
      this.addUsers = formBuilder.group
      ({
       
-      package:['', Validators.required],
-      price:['',Validators.required],
+      package:['', [Validators.required,Validators.pattern(/^[a-zA-Z ]*$/i)]],
+      price:['',[Validators.required,Validators.pattern("^[0-9]*$")]],
      // phoneNo:['',Validators.compose([Validators.required, Validators.maxLength(10), Validators.minLength(5)])],
-      expiryDays:['',[Validators.required]],
-      charLimit:['',[Validators.required]],
+      expiryDays:['',[Validators.required,Validators.pattern("^[0-9]*$")]],
+      charLimit:['',[Validators.required,Validators.pattern("^[0-9]*$")]],
       purchaseId:['',[Validators.required]],
       features:['',Validators.required],
-      billingType:['',[Validators.required]],
+      billingType:['',[Validators.required,Validators.pattern(/^[a-zA-Z ]*$/i)]],
 
       
 
@@ -45,14 +45,14 @@ export class VendorsComponent implements OnInit {
 
      this.Editprofile = formBuilder.group
      ({
-      package:['', Validators.required],
-      price:['',Validators.required],
+      package:['', [Validators.required,Validators.pattern(/^[a-zA-Z ]*$/i)]],
+      price:['',[Validators.required,Validators.pattern("^[0-9]*$")]],
      // phoneNo:['',Validators.compose([Validators.required, Validators.maxLength(10), Validators.minLength(5)])],
-      expiryDays:['',[Validators.required]],
-      charLimit:['',[Validators.required]],
+      expiryDays:['',[Validators.required,Validators.pattern("^[0-9]*$")]],
+      charLimit:['',[Validators.required,Validators.pattern("^[0-9]*$")]],
       purchaseId:['',[Validators.required]],
       features:['',Validators.required],
-      billingType:['',[Validators.required]],
+      billingType:['',[Validators.required,Validators.pattern(/^[a-zA-Z ]*$/i)]],
      })
   }
 
