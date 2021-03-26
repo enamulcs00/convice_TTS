@@ -117,7 +117,7 @@ export class InfocardComponent implements AfterViewInit {
 
     getDashboard()
     {
-      this.Srvc.getdashboard().subscribe((res:any)=>
+      this.Srvc.getDashboardData().subscribe((res:any)=>
       {
           this.totaluser = res.data.totalUsers;
           this.totalfilecon = res.data.totalConvertedFiles;

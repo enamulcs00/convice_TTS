@@ -875,7 +875,18 @@
                 'Authorization': authorization
               })
             };
-            return this.http.post("".concat(this.baseUrl, "admin/dashboard/user/").concat(data.type), '', httpOptions);
+            return this.http.get("".concat(this.baseUrl, "admin/dashboard/user/").concat(data.type), httpOptions);
+          }
+        }, {
+          key: "getDashboardData",
+          value: function getDashboardData() {
+            var authorization = localStorage.getItem('token');
+            var httpOptions = {
+              headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({
+                'Authorization': authorization
+              })
+            };
+            return this.http.get("".concat(this.baseUrl, "admin/dashboard"), httpOptions);
           }
         }, {
           key: "getPackagelist",
@@ -886,7 +897,7 @@
                 'Authorization': authorization
               })
             };
-            return this.http.post("".concat(this.baseUrl, "admin/dashboard/package/").concat(data.type), '', httpOptions);
+            return this.http.get("".concat(this.baseUrl, "admin/dashboard/package/").concat(data.type), httpOptions);
           }
         }, {
           key: "getApi",

@@ -183,7 +183,16 @@ getUserslist(data)
   const httpOptions = {
     headers: new HttpHeaders({ 'Authorization':authorization })
  }
-  return this.http.post<any>(`${this.baseUrl}admin/dashboard/user/${data.type}`,'',httpOptions)
+  return this.http.get<any>(`${this.baseUrl}admin/dashboard/user/${data.type}`,httpOptions)
+}
+
+getDashboardData()
+{
+  const authorization =localStorage.getItem('token');
+  const httpOptions = {
+    headers: new HttpHeaders({ 'Authorization':authorization })
+ }
+  return this.http.get<any>(`${this.baseUrl}admin/dashboard`,httpOptions)
 }
 
 getPackagelist(data)
@@ -192,7 +201,7 @@ getPackagelist(data)
   const httpOptions = {
     headers: new HttpHeaders({ 'Authorization':authorization })
  }
-  return this.http.post<any>(`${this.baseUrl}admin/dashboard/package/${data.type}`,'',httpOptions)
+  return this.http.get<any>(`${this.baseUrl}admin/dashboard/package/${data.type}`, httpOptions)
 }
 getApi(endPointURL){
   return this.http.get(this.baseUrl + endPointURL)

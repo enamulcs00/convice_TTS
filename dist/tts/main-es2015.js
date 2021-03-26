@@ -480,14 +480,21 @@ class ConvserviceService {
         const httpOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({ 'Authorization': authorization })
         };
-        return this.http.post(`${this.baseUrl}admin/dashboard/user/${data.type}`, '', httpOptions);
+        return this.http.get(`${this.baseUrl}admin/dashboard/user/${data.type}`, httpOptions);
+    }
+    getDashboardData() {
+        const authorization = localStorage.getItem('token');
+        const httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({ 'Authorization': authorization })
+        };
+        return this.http.get(`${this.baseUrl}admin/dashboard`, httpOptions);
     }
     getPackagelist(data) {
         const authorization = localStorage.getItem('token');
         const httpOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({ 'Authorization': authorization })
         };
-        return this.http.post(`${this.baseUrl}admin/dashboard/package/${data.type}`, '', httpOptions);
+        return this.http.get(`${this.baseUrl}admin/dashboard/package/${data.type}`, httpOptions);
     }
     getApi(endPointURL) {
         return this.http.get(this.baseUrl + endPointURL);

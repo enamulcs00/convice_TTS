@@ -28,6 +28,8 @@ export class SalesComponent implements AfterViewInit {
     valuearraysec = [];
     keyarraysec = [];
     premier = '';
+    dashboarddata: any;
+    userDetails: any;
     constructor(private Srvc: ConvserviceService) {
         this.getMapdata()
        this.getPremier()
@@ -39,17 +41,16 @@ export class SalesComponent implements AfterViewInit {
             "type": this.weekly == '' ? 'weekly' : this.weekly
         }
         this.Srvc.getUserslist(data).subscribe((res: any) => {
-            for (let key in res.data.NewUserWeek) {
+            console.log('This is mapdata',res)
+            this.dashboarddata = res.data
+            for (let key in res.data.weeklyNewUsers) {
                 this.keyarray.push(key);
-                this.valuearray.push(res.data.NewUserWeek[key])
+                this.valuearray.push(res.data.weeklyNewUsers[key])
 
             }
         })
-    
-
-    }
-
-
+      
+        }
     getPremier()
     {
         const datapre =
@@ -58,15 +59,16 @@ export class SalesComponent implements AfterViewInit {
         }
         this.Srvc.getPackagelist(datapre).subscribe((res:any)=>
         {
+            
             //premiumPackageWeek
-            for (let key in res.data.freemiumPackageWeek) {
+            for (let key in res.data.weeklyPackages.freemium) {
                 this.keyarraypre.push(key);
-                this.valuearraypre.push(res.data.freemiumPackageWeek[key])
+                this.valuearraypre.push(res.data.weeklyPackages.freemium[key])
 
             }
-            for (let key in res.data.premiumPackageWeek) {
+            for (let key in res.data.weeklyPackages.premium) {
                 this.keyarraysec.push(key);
-                this.valuearraysec.push(res.data.premiumPackageWeek[key])
+                this.valuearraysec.push(res.data.weeklyPackages.premium[key])
 
             }
             setTimeout(() => {
@@ -92,27 +94,28 @@ export class SalesComponent implements AfterViewInit {
         }
         this.Srvc.getPackagelist(datapre).subscribe((res:any)=>
         {
+            console.log('Prechnge Only',res)
             if(this.premier == 'weekly')
             {
-                for (let key in res.data.freemiumPackageWeek) {
+                for (let key in res.data.weeklyPackages.freemium) {
                     this.keyarraypre.push(key);
-                    this.valuearraypre.push(res.data.freemiumPackageWeek[key])
+                    this.valuearraypre.push(res.data.weeklyPackages.freemium[key])
     
                 }
-                for (let key in res.data.premiumPackageWeek) {
+                for (let key in res.data.weeklyPackages.premium) {
                     this.keyarraysec.push(key);
-                    this.valuearraysec.push(res.data.premiumPackageWeek[key])
+                    this.valuearraysec.push(res.data.weeklyPackages.premium[key])
                 }
             }else{
              
-                for (let key in res.data.freemiumPackageMonthly[0]) {
+                for (let key in res.data.monthlyPackages.freemium) {
                     this.keyarraypre.push(key);
-                    this.valuearraypre.push(res.data.freemiumPackageMonthly[0][key])
+                    this.valuearraypre.push(res.data.monthlyPackages.freemium[key])
     
                 }
-                for (let key in res.data.premiumPackageMonthly[0]) {
+                for (let key in res.data.monthlyPackages.premium) {
                     this.keyarraysec.push(key);
-                    this.valuearraysec.push(res.data.premiumPackageMonthly[0][key])
+                    this.valuearraysec.push(res.data.monthlyPackages.premium[key])
     
                 }   
             }
@@ -179,6 +182,7 @@ export class SalesComponent implements AfterViewInit {
     };
 
     ngAfterViewInit() {
+        
         const chart2 = c3.generate({
             bindto: '#product-sales',
             data: {
@@ -255,16 +259,17 @@ export class SalesComponent implements AfterViewInit {
             "type": this.weekly == '' ? 'weekly' : this.weekly
         }
         this.Srvc.getUserslist(data).subscribe((res: any) => {
+            console.log('this is old data',res)
             if(this.weekly == 'weekly')
             {
-                for (let key in res.data.NewUserWeek) {
+                for (let key in res.data.weeklyNewUsers) {
                     this.keyarray.push(key);
-                    this.valuearray.push(res.data.NewUserWeek[key])
+                    this.valuearray.push(res.data.weeklyNewUsers[key])
                 }
             }else{
-                for (let key in res.data.NewUserMonthly[0]) {
+                for (let key in res.data.monthlyNewUsers) {
                     this.keyarray.push(key);
-                    this.valuearray.push(res.data.NewUserMonthly[0][key])
+                    this.valuearray.push(res.data.monthlyNewUsers[key])
                 }
             }
          
@@ -275,7 +280,5 @@ export class SalesComponent implements AfterViewInit {
                 this.barChartLabels1 = this.keyarray
             }, 1000);
         })
-       
-
     }
 }

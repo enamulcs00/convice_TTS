@@ -2132,7 +2132,7 @@
           value: function getDashboard() {
             var _this = this;
 
-            this.Srvc.getdashboard().subscribe(function (res) {
+            this.Srvc.getDashboardData().subscribe(function (res) {
               _this.totaluser = res.data.totalUsers;
               _this.totalfilecon = res.data.totalConvertedFiles;
               _this.newuser = res.data.newUsers;
@@ -4883,10 +4883,13 @@
               "type": this.weekly == '' ? 'weekly' : this.weekly
             };
             this.Srvc.getUserslist(data).subscribe(function (res) {
-              for (var key in res.data.NewUserWeek) {
+              console.log('This is mapdata', res);
+              _this2.dashboarddata = res.data;
+
+              for (var key in res.data.weeklyNewUsers) {
                 _this2.keyarray.push(key);
 
-                _this2.valuearray.push(res.data.NewUserWeek[key]);
+                _this2.valuearray.push(res.data.weeklyNewUsers[key]);
               }
             });
           }
@@ -4900,16 +4903,16 @@
             };
             this.Srvc.getPackagelist(datapre).subscribe(function (res) {
               //premiumPackageWeek
-              for (var key in res.data.freemiumPackageWeek) {
+              for (var key in res.data.weeklyPackages.freemium) {
                 _this3.keyarraypre.push(key);
 
-                _this3.valuearraypre.push(res.data.freemiumPackageWeek[key]);
+                _this3.valuearraypre.push(res.data.weeklyPackages.freemium[key]);
               }
 
-              for (var _key in res.data.premiumPackageWeek) {
+              for (var _key in res.data.weeklyPackages.premium) {
                 _this3.keyarraysec.push(_key);
 
-                _this3.valuearraysec.push(res.data.premiumPackageWeek[_key]);
+                _this3.valuearraysec.push(res.data.weeklyPackages.premium[_key]);
               }
 
               setTimeout(function () {
@@ -4938,29 +4941,31 @@
               "type": this.premier
             };
             this.Srvc.getPackagelist(datapre).subscribe(function (res) {
+              console.log('Prechnge Only', res);
+
               if (_this4.premier == 'weekly') {
-                for (var key in res.data.freemiumPackageWeek) {
+                for (var key in res.data.weeklyPackages.freemium) {
                   _this4.keyarraypre.push(key);
 
-                  _this4.valuearraypre.push(res.data.freemiumPackageWeek[key]);
+                  _this4.valuearraypre.push(res.data.weeklyPackages.freemium[key]);
                 }
 
-                for (var _key2 in res.data.premiumPackageWeek) {
+                for (var _key2 in res.data.weeklyPackages.premium) {
                   _this4.keyarraysec.push(_key2);
 
-                  _this4.valuearraysec.push(res.data.premiumPackageWeek[_key2]);
+                  _this4.valuearraysec.push(res.data.weeklyPackages.premium[_key2]);
                 }
               } else {
-                for (var _key3 in res.data.freemiumPackageMonthly[0]) {
+                for (var _key3 in res.data.monthlyPackages.freemium) {
                   _this4.keyarraypre.push(_key3);
 
-                  _this4.valuearraypre.push(res.data.freemiumPackageMonthly[0][_key3]);
+                  _this4.valuearraypre.push(res.data.monthlyPackages.freemium[_key3]);
                 }
 
-                for (var _key4 in res.data.premiumPackageMonthly[0]) {
+                for (var _key4 in res.data.monthlyPackages.premium) {
                   _this4.keyarraysec.push(_key4);
 
-                  _this4.valuearraysec.push(res.data.premiumPackageMonthly[0][_key4]);
+                  _this4.valuearraysec.push(res.data.monthlyPackages.premium[_key4]);
                 }
               }
 
@@ -5026,17 +5031,19 @@
               "type": this.weekly == '' ? 'weekly' : this.weekly
             };
             this.Srvc.getUserslist(data).subscribe(function (res) {
+              console.log('this is old data', res);
+
               if (_this5.weekly == 'weekly') {
-                for (var key in res.data.NewUserWeek) {
+                for (var key in res.data.weeklyNewUsers) {
                   _this5.keyarray.push(key);
 
-                  _this5.valuearray.push(res.data.NewUserWeek[key]);
+                  _this5.valuearray.push(res.data.weeklyNewUsers[key]);
                 }
               } else {
-                for (var _key5 in res.data.NewUserMonthly[0]) {
+                for (var _key5 in res.data.monthlyNewUsers) {
                   _this5.keyarray.push(_key5);
 
-                  _this5.valuearray.push(res.data.NewUserMonthly[0][_key5]);
+                  _this5.valuearray.push(res.data.monthlyNewUsers[_key5]);
                 }
               }
 

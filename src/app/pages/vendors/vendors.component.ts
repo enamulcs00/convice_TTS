@@ -24,6 +24,8 @@ export class VendorsComponent implements OnInit {
   pagecount: any;
   editdata: any;
   userId: any;
+  feature:string[]=[]
+  featureEdit:string[]=[]
   constructor(private modalService: NgbModal,private router:Router ,private formBuilder: FormBuilder,private Srvc:ConvserviceService) 
   {
     if(!localStorage.getItem('token'))this.router.navigate(['/login'])
@@ -36,7 +38,7 @@ export class VendorsComponent implements OnInit {
       expiryDays:['',[Validators.required,Validators.pattern("^[0-9]*$")]],
       charLimit:['',[Validators.required,Validators.pattern("^[0-9]*$")]],
       purchaseId:['',[Validators.required]],
-      features:['',Validators.required],
+      
       billingType:['',[Validators.required,Validators.pattern(/^[a-zA-Z ]*$/i)]],
 
       
@@ -51,7 +53,7 @@ export class VendorsComponent implements OnInit {
       expiryDays:['',[Validators.required,Validators.pattern("^[0-9]*$")]],
       charLimit:['',[Validators.required,Validators.pattern("^[0-9]*$")]],
       purchaseId:['',[Validators.required]],
-      features:['',Validators.required],
+      
       billingType:['',[Validators.required,Validators.pattern(/^[a-zA-Z ]*$/i)]],
      })
   }
@@ -81,13 +83,14 @@ userDeleteModal(userDelete,id) {
 
 userDetailModal(userDetail,obj) {
   this.userid = obj._id
+  this.featureEdit = obj.features
   this.Editprofile.patchValue({
 package:obj.name,
 price:obj.price,
 expiryDays:obj.expiryDays,
 charLimit:obj.charLimit,
 purchaseId:obj.purchaseId,
-features:obj.features,
+
 billingType:obj.billingType,
   })
   
@@ -134,14 +137,16 @@ modalyes()
 }
 
 modalUpdated()
+
 {
+  console.log('upade');
   this.submitted = true;
   const data =
   {
     
     "name":this.Editprofile.controls['package'].value,
-      "price":this.Editprofile.controls['price'].value,
-      "features":this.Editprofile.controls['features'].value,
+      "price":this.Editprofile.controls['price'].value+"",
+      "features":this.featureEdit,
       "expiryDays":this.Editprofile.controls['expiryDays'].value,
       "charLimit":this.Editprofile.controls['charLimit'].value,
       "billingType":this.Editprofile.controls['billingType'].value,
@@ -155,6 +160,9 @@ modalUpdated()
       Swal.fire('',res.message,'success')
       this.modalService.dismissAll();
       this.getAllUsers()
+    }
+    else{
+      Swal.fire('',res.message,'error')
     }
   })
 }
@@ -181,8 +189,8 @@ addUserdata()
     const data=
     {
       "name":this.addUsers.controls['package'].value,
-      "price":this.addUsers.controls['price'].value,
-      "features":this.addUsers.controls['features'].value,
+      "price":this.addUsers.controls['price'].value+"",
+      "features":this.feature,
       "expiryDays":this.addUsers.controls['expiryDays'].value,
       "charLimit":this.addUsers.controls['charLimit'].value,
       "billingType":this.addUsers.controls['billingType'].value,
@@ -195,6 +203,7 @@ addUserdata()
         this.getAllUsers()
         Swal.fire('',res.message,'success');
         this.modalService.dismissAll()
+        this.addUsers.reset()
       }
       else{
         Swal.fire('',res.message,'error')
@@ -230,5 +239,28 @@ someMethod(event)
 {
   this.isActive =event.target.value;
   this.getAllUsers()
+}
+features(e,item){
+  console.log('This is checked items',e.target.checked)
+if(e.target.checked==true){
+  this.feature.push(item)
+  console.log('Check true',this.feature)
+}
+else if(e.target.checked==false){
+  this.feature.splice(this.feature.indexOf(item), 1);
+  console.log('Unchecked',this.feature)
+  }
+
+}
+featuresEdit(e,item){
+  console.log('This is checked items',e.target.checked)
+if(e.target.checked==true){
+  this.featureEdit.push(item)
+  console.log('Check true',this.feature)
+}
+else if(e.target.checked==false){
+  this.featureEdit.splice(this.featureEdit.indexOf(item), 1);
+  console.log('Unchecked',this.feature)
+  }
 }
 }
