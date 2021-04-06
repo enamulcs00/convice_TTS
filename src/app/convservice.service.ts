@@ -41,6 +41,16 @@ export class ConvserviceService {
     return this.http.get(`${this.baseUrl}admin/packages`,httpOptions)
   }
 
+  getTransactions()
+  {
+    const authorization =localStorage.getItem('token');
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Authorization':authorization })
+   }
+    //Authtoken//
+    return this.http.get(`${this.baseUrl}admin/transactions`,httpOptions)
+  }
+
 
   updateProfile(data)
   {

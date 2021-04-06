@@ -48,6 +48,7 @@ import { PrivacyComponent } from './privacy-policy/privacy.component';
 import { AdminComponent } from './admin/admin.component';
 import { SupportComponent } from './support/support.component';
 import {MatIconModule} from '@angular/material/icon';
+import { TransactionsComponent } from './transactions/transactions.component';
 @NgModule({
   imports: [
 CommonModule,
@@ -99,7 +100,8 @@ CommonModule,
     BannerComponent,
     PrivacyComponent,
     AdminComponent,
-    SupportComponent
+    SupportComponent,
+    TransactionsComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

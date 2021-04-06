@@ -32,6 +32,7 @@ import { BannerComponent } from './banner/banner.component';
 import { PrivacyComponent } from './privacy-policy/privacy.component';
 import { AdminComponent } from './admin/admin.component';
 import { SupportComponent } from './support/support.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 // import { UsersDetailComponent } from './users-detail/users-detail.component';
 
 
@@ -91,6 +92,17 @@ export const PagesRoutes: Routes = [
           urls: [
             { title: 'Dashboard', url: '/dashboard' },
             { title: 'Vendors' }
+          ]
+        }
+      },
+      {
+        path: 'transactions',
+        component: TransactionsComponent,
+        data: {
+          title: 'Manage transactions',
+          urls: [
+            { title: 'Dashboard', url: '/dashboard' },
+            { title: 'Transactions' }
           ]
         }
       },

@@ -33,6 +33,15 @@ export const ROUTES: RouteInfo[] = [
         extralink: false,
         submenu: []
     },
+
+    {
+        path: '/pages/transactions',
+        title: 'Transactions',
+        icon: ' sl-icon-book-open',
+        class: '',
+        extralink: false,
+        submenu: []
+    },
     // {
     //     path: '/pages/foodcategories',
     //     title: 'Food Categories',
