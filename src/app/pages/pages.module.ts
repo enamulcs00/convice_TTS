@@ -49,6 +49,8 @@ import { AdminComponent } from './admin/admin.component';
 import { SupportComponent } from './support/support.component';
 import {MatIconModule} from '@angular/material/icon';
 import { TransactionsComponent } from './transactions/transactions.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+
 @NgModule({
   imports: [
 CommonModule,
@@ -64,7 +66,8 @@ CommonModule,
     NgxChartsModule,
     NgxDatatableModule,
     MatPaginatorModule,
-    MatIconModule
+    MatIconModule,
+    NgxPaginationModule
   
   ],
   declarations: [

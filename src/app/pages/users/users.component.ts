@@ -113,6 +113,19 @@ getAllUsers()
   })
 }
 
+onPaginateChange(event)
+{
+  
+  console.log(event)
+  if (event.pageIndex===0){
+    this.pageindec = 1;
+  }
+  else {
+    this.pageindec = event.pageIndex+1;
+  }
+  this.getAllUsers()
+}
+
 modalyes()
 {
  debugger
@@ -200,12 +213,7 @@ public errorHandlingProfile = (control: string, error: string) => {
   return this.Editprofile.controls[control].hasError(error);
 }
 
-onPaginateChange(event)
-{
-  console.log(event)
-  this.pageindec = event.pageIndex
-  this.getAllUsers()
-}
+
 
 getItem(event)
 {

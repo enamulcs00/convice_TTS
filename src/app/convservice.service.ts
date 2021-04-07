@@ -41,14 +41,14 @@ export class ConvserviceService {
     return this.http.get(`${this.baseUrl}admin/packages`,httpOptions)
   }
 
-  getTransactions()
+  getTransactions(page)
   {
     const authorization =localStorage.getItem('token');
     const httpOptions = {
       headers: new HttpHeaders({ 'Authorization':authorization })
    }
     //Authtoken//
-    return this.http.get(`${this.baseUrl}admin/transactions`,httpOptions)
+    return this.http.get(`${this.baseUrl}admin/transactions?page=${page}`,httpOptions)
   }
 
 
@@ -98,7 +98,7 @@ Allusers(data)
   const httpOptions = {
     headers: new HttpHeaders({ 'Authorization':authorization })
  }
-   return this.http.post<any>(`${this.baseUrl}admin/allUsers`,data,httpOptions)  
+   return this.http.post<any>(`${this.baseUrl}admin/allUsers?page=${data}`,data,httpOptions)  
 }
 
 DeletePackage(id)

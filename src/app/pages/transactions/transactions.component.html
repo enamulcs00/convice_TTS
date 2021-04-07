@@ -54,42 +54,36 @@
                 </tr>
               </thead>
               <tbody>
+                <!-- <tr *ngFor="let item of userdata | paginate : {itemsPerPage:itemPerPage, currentPage:currentPage, totalItems:totalItems}; let i=index"> -->
                 <tr *ngFor="let item of userdata">
                   <td>
-                    {{ item?.transId || "-"  }}
+                    {{ item?.transId || "-" }}
                   </td>
-                  <td>{{ item?.expiryAt |date:'medium'}}</td>
+                  <td>{{ item?.expiryAt | date: "medium" }}</td>
 
                   <td>{{ item?.charLeft || "-" }}</td>
 
                   <td>{{ item?.charLimit || "-" }}</td>
 
-                  <td>
-                    {{ item?.paymentPrice || "-" }}
-                    <!-- <mat-slide-toggle [checked]="!item.isBlocked"
-                                            (change)="onChange($event,item._id)">
-
-                                        </mat-slide-toggle> -->
-                  </td>
+                  <td>{{ item?.paymentPrice || "-" }}</td>
 
                   <td>{{ item?.paymentStatus || "-" }}</td>
 
                   <td>{{ item?.package.name || "-" }}</td>
-
                 </tr>
               </tbody>
             </table>
           </div>
+          <!-- <div class="w-100 text-right" *ngIf="totalItems>itemPerPage">
+            <pagination-controls (pageChange)="pagination($event)"></pagination-controls>
+        </div> -->
         </div>
       </div>
     </div>
-    <mat-paginator
-      [length]="pagecount"
-      [pageSize]="10"
-      (page)="onPaginateChange($event)"
-    >
-    </mat-paginator>
-    <!-- Column -->
+
+    
+    <mat-paginator [length]="pageCount" [pageSize]="10" (page)="onPaginateChange($event)"></mat-paginator>
+
   </div>
 
   <ng-template #content3 let-modal>

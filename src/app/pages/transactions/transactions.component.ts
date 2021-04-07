@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+
 import {
   NgbModal,
   ModalDismissReasons,
@@ -26,7 +27,8 @@ export class TransactionsComponent implements OnInit {
   submitted: boolean;
   pageindec: any;
   isActive: any;
-  pagecount: any;
+  pageCount: any;
+  itemCount:any;
   editdata: any;
   userId: any;
   purchaseId: "344353WI";
@@ -148,12 +150,33 @@ export class TransactionsComponent implements OnInit {
   }
 
   getAllUsers() {
-    this.Srvc.getTransactions().subscribe((res: any) => {
+  
+    var page=this.pageindec == null ? '1' : this.pageindec;
+  
+    this.Srvc.getTransactions(page).subscribe((res: any) => {
       console.log("This is data pack", res.data.data);
       this.userdata = res.data.data;
-      this.pagecount = res.data.data.length;
+      this.pageCount = res.data.itemCount;
     });
   }
+
+  
+
+  onPaginateChange(event) {
+    console.log(event);
+    console.log(event.pageIndex);
+    
+    if (event.pageIndex===0){
+      this.pageindec = 1;
+    }
+    else {
+      this.pageindec = event.pageIndex+1;
+    }
+    
+    // this.pageindec = event.pageIndex==0?1:event.pageIndex;
+    this.getAllUsers();
+  }
+
 
   modalyes() {
     this.Srvc.DeletePackage(this.userid).subscribe((res: any) => {
@@ -236,11 +259,7 @@ export class TransactionsComponent implements OnInit {
     return this.Editprofile.controls[control].hasError(error);
   };
 
-  onPaginateChange(event) {
-    console.log(event);
-    this.pageindec = event.pageIndex;
-    this.getAllUsers();
-  }
+  
 
   getItem(event) {
     console.log(event.target.value);
