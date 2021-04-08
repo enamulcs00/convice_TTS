@@ -98,7 +98,7 @@ Allusers(data)
   const httpOptions = {
     headers: new HttpHeaders({ 'Authorization':authorization })
  }
-   return this.http.post<any>(`${this.baseUrl}admin/allUsers?page=${data}`,data,httpOptions)  
+   return this.http.get<any>(`${this.baseUrl}admin/users?page=${data.page || 1}&search=${data.search || ""}&isBlocked=${data.isBlocked || ""}`,httpOptions)
 }
 
 DeletePackage(id)

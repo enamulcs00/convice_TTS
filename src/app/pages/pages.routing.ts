@@ -85,13 +85,13 @@ export const PagesRoutes: Routes = [
         }
       },
       {
-        path: 'vendors',
+        path: 'packages',
         component: VendorsComponent,
         data: {
-          title: 'Manage Packages',
+          title: 'Manage  Packages',
           urls: [
             { title: 'Dashboard', url: '/dashboard' },
-            { title: 'Vendors' }
+            { title: 'Packages' }
           ]
         }
       },

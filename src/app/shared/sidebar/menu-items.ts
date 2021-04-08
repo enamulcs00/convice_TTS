@@ -26,7 +26,7 @@ export const ROUTES: RouteInfo[] = [
         submenu: []
     },
     {
-        path: '/pages/vendors',
+        path: '/pages/packages',
         title: 'Packages',
         icon: ' sl-icon-book-open',
         class: '',
