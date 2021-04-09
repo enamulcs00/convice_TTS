@@ -778,7 +778,7 @@
                 'Authorization': authorization
               })
             };
-            return this.http.post("".concat(this.baseUrl, "admin/allUsers?page=").concat(data), data, httpOptions);
+            return this.http.get("".concat(this.baseUrl, "admin/users?page=").concat(data.page || 1, "&search=").concat(data.search || "", "&isBlocked=").concat(data.isBlocked || ""), httpOptions);
           }
         }, {
           key: "DeletePackage",
@@ -3069,7 +3069,7 @@
         extralink: false,
         submenu: []
       }, {
-        path: '/pages/vendors',
+        path: '/pages/packages',
         title: 'Packages',
         icon: ' sl-icon-book-open',
         "class": '',

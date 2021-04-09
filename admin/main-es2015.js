@@ -420,7 +420,7 @@ class ConvserviceService {
         const httpOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({ 'Authorization': authorization })
         };
-        return this.http.post(`${this.baseUrl}admin/allUsers?page=${data}`, data, httpOptions);
+        return this.http.get(`${this.baseUrl}admin/users?page=${data.page || 1}&search=${data.search || ""}&isBlocked=${data.isBlocked || ""}`, httpOptions);
     }
     DeletePackage(id) {
         const authorization = localStorage.getItem('token');
@@ -1526,7 +1526,7 @@ const ROUTES = [
         submenu: []
     },
     {
-        path: '/pages/vendors',
+        path: '/pages/packages',
         title: 'Packages',
         icon: ' sl-icon-book-open',
         class: '',

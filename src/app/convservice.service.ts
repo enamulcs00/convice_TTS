@@ -157,7 +157,11 @@ addUser(data)
 
 changeStatus(id)
 {
-  return this.http.post<any>(`${this.baseUrl}admin/changeStatus/${id}`,'')
+  const authorization =localStorage.getItem('token');
+  const httpOptions = {
+    headers: new HttpHeaders({ 'Authorization':authorization })
+ }
+  return this.http.post<any>(`${this.baseUrl}admin/changeStatus/${id}`,'',httpOptions);
 }
 
 setCmscond(data)
