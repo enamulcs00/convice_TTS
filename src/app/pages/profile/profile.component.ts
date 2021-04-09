@@ -105,7 +105,7 @@ export class ProfileComponent {
   {
    // alert(event.keyCode)
     const charCode = (event.which) ? event.which : event.keyCode;
-    if ((charCode > 65 && charCode < 90) || (charCode > 97 && charCode < 122)) {
+    if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) {
       return true;
     }
     return false;

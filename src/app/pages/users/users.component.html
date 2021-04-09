@@ -462,7 +462,7 @@
               <div class="row p-t-20">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label class="control-label">FirstName</label>
+                    <label class="control-label">First Name</label>
                     <mat-form-field [floatLabel]="'never'">
                       <input
                         matInput
@@ -481,7 +481,7 @@
                         errorHandlingRevocer('firstName', 'required')
                       "
                     >
-                      firstName is required!
+                      First Name is required!
                     </mat-error>
                     <mat-error
                       class="error"
@@ -491,14 +491,14 @@
                         errorHandlingRevocer('firstName', 'minlength')
                       "
                     >
-                      Invalid firstName!
+                      Invalid First Name!
                     </mat-error>
                   </div>
                 </div>
 
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label class="control-label">LastName</label>
+                    <label class="control-label">Last Name</label>
                     <mat-form-field [floatLabel]="'never'">
                       <input
                         matInput
@@ -517,7 +517,7 @@
                         errorHandlingRevocer('lastName', 'required')
                       "
                     >
-                      LastName is required!
+                      Last Name is required!
                     </mat-error>
                     <mat-error
                       class="error"
@@ -527,7 +527,7 @@
                         errorHandlingRevocer('lastName', 'minlength')
                       "
                     >
-                      Invalid LastName!
+                      Invalid Last Name!
                     </mat-error>
                   </div>
                 </div>
@@ -604,6 +604,15 @@
                       <option value="MALE">Male</option>
                       <option value="FEMALE">Female</option>
                     </select>
+                    <!-- <mat-form-field appearance="fill">
+                      
+                      <mat-select disableRipple id="gender" class="form-control" 
+                      formControlName="gender" name="gender" tabindex="1"> 
+                        <mat-option value="MALE">Male</mat-option>
+                        <mat-option value="FEMALE">Female</mat-option>
+                        
+                      </mat-select> -->
+                    <!-- </mat-form-field> -->
                   </div>
                   <mat-error
                     class="error"

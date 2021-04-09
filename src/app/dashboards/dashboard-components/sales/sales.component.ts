@@ -235,7 +235,7 @@ export class SalesComponent implements AfterViewInit {
     public barChartLegend = true;
 
     public barChart2Data: any[] = [
-        { data: this.valuearray, label: 'Sales' },
+        { data: this.valuearray, label: 'Users' },
     ];
     public barChartData: any[] = [
         { data: this.valuearraypre, label: 'Freemium' },
@@ -275,7 +275,7 @@ export class SalesComponent implements AfterViewInit {
          
             setTimeout(() => {
                 this.barChart2Data = [
-                    { data: this.valuearray, label: 'Sales' },
+                    { data: this.valuearray, label: 'Users' },
                 ];
                 this.barChartLabels1 = this.keyarray
             }, 1000);
