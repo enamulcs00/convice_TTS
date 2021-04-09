@@ -74,7 +74,7 @@ export class SalesComponent implements AfterViewInit {
             setTimeout(() => {
                 this.barChartData = [
                     { data: this.valuearraypre, label: 'Freemium' },
-                    { data: this.valuearraysec, label: 'premium' }
+                    { data: this.valuearraysec, label: 'Premium' }
                 ];
                  this.barChartLabels = this.keyarraypre;
             }, 1000);
@@ -239,7 +239,7 @@ export class SalesComponent implements AfterViewInit {
     ];
     public barChartData: any[] = [
         { data: this.valuearraypre, label: 'Freemium' },
-        { data: this.valuearraysec, label: 'premium' }
+        { data: this.valuearraysec, label: 'Premium' }
     ];
     public barChartColors: Array<any> = [
         { backgroundColor: '#36bea6' }

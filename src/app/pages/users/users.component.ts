@@ -195,7 +195,7 @@ export class UsersComponent implements OnInit {
   addUserdata() {
     this.submitted = true;
     if (!this.addUsers.invalid) {
-      debugger;
+      // debugger;
       const data = {
         firstName: this.addUsers.controls["firstName"].value,
         lastName: this.addUsers.controls["lastName"].value,
